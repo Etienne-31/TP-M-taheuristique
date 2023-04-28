@@ -28,7 +28,9 @@ public interface Solver {
             case "est_lpt": return new GreedySolver(GreedySolver.Priority.EST_LPT);
             case "descente_est_spt": return new DescentSolver(new Nowicki(),new GreedySolver(GreedySolver.Priority.EST_SPT));
             case "descente_spt": return new DescentSolver(new Nowicki(),new GreedySolver(GreedySolver.Priority.SPT));
-            case "tabou" : return new TabouSolver(new Nowicki(),new GreedySolver(GreedySolver.Priority.SPT));
+            case "tabou_spt" : return new TabouSolver(new Nowicki(),new GreedySolver(GreedySolver.Priority.SPT));
+            case "tabou_est_spt" : return new TabouSolver(new Nowicki(),new GreedySolver(GreedySolver.Priority.EST_SPT));
+            case "tabou_lrpt" : return new TabouSolver(new Nowicki(),new GreedySolver(GreedySolver.Priority.EST_LRPT));
             default: throw new RuntimeException("Unknown solver: "+ name);
         }
     }

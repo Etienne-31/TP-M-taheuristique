@@ -61,10 +61,6 @@ public class GreedySolver implements Solver {
         }
 
         while(!task_to_exec.isEmpty()){
-            //task_to_exec.forEach(System.out::println);
-           // System.out.println("empty" + task_to_exec.isEmpty());
-            //System.out.println("size" + task_to_exec.size());
-            //System.out.println("-------------");
             switch (this.priority){
 
                 case SPT:
@@ -92,6 +88,8 @@ public class GreedySolver implements Solver {
                 case LRPT:
                     int LR_process_duree = 0;
                     Task  LRProcess = task_to_exec.get(0);
+
+                    // Ici on vient calculer la durée restante de chaque job
                     for(int i = LRProcess.task;i<=nb_tache_per_job-1;i++){
                         LR_process_duree = LR_process_duree + instance.duration(LRProcess.job,i);
                     }
